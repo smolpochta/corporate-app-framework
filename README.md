@@ -74,7 +74,7 @@
 
  ![**Клиентское приложение (apk)**](app-release.apk)
 
- ![**Модуль главного меню (java)**](app-release.apk)
+ ![**Модуль главного меню (java)**](MainActivity.java)
 
  
 <br>
