@@ -1,3 +1,7 @@
+
+<p align="center"><img width="242" height="508" alt="phone" src="https://github.com/user-attachments/assets/5e3856db-130a-4f7e-bcc2-8984a47c6d60"  /></p>
+
+
 # Корпоративное модульное приложение для Android
 
 **Платформа для цифровизации бизнес-процессов с использованием мобильных устройств**
