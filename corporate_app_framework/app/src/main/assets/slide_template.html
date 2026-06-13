@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайдер баннеров - Декантер</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+	html, body {
+        overflow: hidden !important;
+        position: fixed !important;
+        width: 100% !important;
+        height: 100% !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .banner-main, 
+    .banner-main__list, 
+    .banner-main__item {
+        overflow: hidden !important;
+        touch-action: none !important;
+    }
+    
+    /* Блокируем выделение текста и жесты */
+    * {
+        -webkit-user-select: none !important;
+        -webkit-touch-callout: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+        }
+        
+        .banner-main {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+        
+        .banner-main__list {
+            height: 100%;
+        }
+        
+        .banner-main__item {
+            height: 80vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .banner-main__content {
+    max-width: 600px;
+    margin-right: 180px; 
+    margin-left: auto; 
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    text-align: right; 
+}
+
+
+
+        
+        .banner-main__title {
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .banner-main__text {
+            font-size: 25px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .banner-main__button {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #a80603;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .banner-main__button:hover {
+            background-color: #8a0502;
+        }
+        
+        .banner-main__note {
+            font-size: 14px;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+        
+        /* Точные стили точек из оригинального CSS */
+        .owl-dots {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            line-height: 0;
+            text-align: center;
+        }
+        
+        .owl-dots .owl-dot {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            padding: 8px !important;
+            margin-right: 0;
+            display: inline-block;
+        }
+        
+        .owl-dots .owl-dot span {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: #9fb2bb;
+            display: block;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .owl-dots .owl-dot:first-child span,
+        .owl-dots .owl-dot:last-child span {
+            width: 5px;
+            height: 5px;
+        }
+        
+        .owl-dots .owl-dot.active span {
+            width: 10px;
+            height: 10px;
+            background: #a23434;
+        }
+
+        /* Точные стили стрелок из оригинального CSS */
+        .owl-nav {
+            font-size: 0;
+            line-height: 0;
+        }
+        
+        .owl-carousel .owl-nav button.owl-prev,
+        .owl-carousel .owl-nav button.owl-next {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 32"><path fill="white" d="M16.5 0L18 1.5 3.9 16l14.1 14.5-1.5 1.5L0 16z"/></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 18px;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            transition: opacity 0.3s;
+            background-color: transparent !important;
+            color: transparent !important;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev {
+            left: 20px;
+            transform: rotate(180deg);
+        }
+
+        .owl-carousel .owl-nav button.owl-next {
+            right: 20px;
+        }
+
+        .owl-carousel .owl-nav button.owl-prev:hover,
+        .owl-carousel .owl-nav button.owl-next:hover {
+            opacity: 0.7;
+        }
+
+        /* Скрываем стандартные кнопки Owl Carousel */
+        .owl-carousel .owl-nav button.owl-prev span,
+        .owl-carousel .owl-nav button.owl-next span {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .banner-main__item {
+                height: 70vh;
+                min-height: 500px;
+            }
+            
+            .banner-main__content {
+                margin-left: 30px;
+                margin-right: 30px;
+                text-align: center;
+            }
+            
+            .banner-main__title {
+                font-size: 32px;
+            }
+            
+            .banner-main__text {
+                font-size: 18px;
+            }
+            
+            .owl-carousel .owl-nav button.owl-prev,
+            .owl-carousel .owl-nav button.owl-next {
+                width: 14px;
+                height: 25px;
+            }
+            
+            .owl-carousel .owl-nav button.owl-prev {
+                left: 15px;
+            }
+            
+            .owl-carousel .owl-nav button.owl-next {
+                right: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-main__item {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .banner-main__content {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            
+            .banner-main__title {
+                font-size: 28px;
+            }
+            
+            .banner-main__text {
+                font-size: 16px;
+            }
+            
+            .banner-main__button {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-main">
+        <div class="banner-main__list owl-carousel owl-theme">
+            <!-- Слайды будут добавлены с помощью JavaScript -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        // Коллекция баннеров с абсолютными ссылками
+        const banners = ###slides###
+
+        // Функция для генерации HTML-кода слайдов
+        function generateSlides() {
+            const carousel = document.querySelector('.banner-main__list');
+            
+            banners.forEach((banner, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'banner-main__item';
+                slide.style.backgroundImage = `url('${banner.image}')`;
+                
+                let buttonHTML = '';
+                if (banner.button) {
+                    buttonHTML = `<a href="${banner.button.link}" class="banner-main__button">${banner.button.text}</a>`;
+                }
+                
+                let noteHTML = '';
+                if (banner.note) {
+                    noteHTML = `<div class="banner-main__note">${banner.note}</div>`;
+                }
+                
+                slide.innerHTML = `
+                    <div class="banner-main__content">
+                        <div class="banner-main__title">${banner.title}</div>
+                        <div class="banner-main__text">${banner.text}</div>
+                        ${buttonHTML}
+                        ${noteHTML}
+                    </div>
+                `;
+                
+                carousel.appendChild(slide);
+            });
+            
+            var autoplayInterval = 6000;
+            var touchStartTime = 0;
+            var isTouching = false;
+
+            var owl = $('.banner-main__list').owlCarousel({
+                items: 1,
+                loop: true,
+                nav: false,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: autoplayInterval,
+                autoplayHoverPause: false,
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn'
+            });
+
+            // Обработчики для touch событий
+            $('.banner-main__list').on('touchstart', function() {
+                touchStartTime = Date.now();
+                isTouching = true;
+                owl.trigger('stop.owl.autoplay');
+            });
+
+            $('.banner-main__list').on('touchend', function() {
+                isTouching = false;
+                var touchDuration = Date.now() - touchStartTime;
+                
+                // Запускаем автопрокрутку через 1 секунду после отпускания
+                setTimeout(function() {
+                    if (!isTouching) {
+                        owl.trigger('play.owl.autoplay');
+                    }
+                }, 1000);
+            });
+
+            // Также обрабатываем события drag для Owl Carousel
+            owl.on('drag.owl.carousel', function() {
+                owl.trigger('stop.owl.autoplay');
+            });
+
+            owl.on('dragged.owl.carousel', function() {
+                setTimeout(function() {
+                    owl.trigger('play.owl.autoplay');
+                }, 1000);
+            });
+        }
+
+        // Запуск после загрузки DOM
+        document.addEventListener('DOMContentLoaded', generateSlides);
+    </script>
+</body>
+</html>

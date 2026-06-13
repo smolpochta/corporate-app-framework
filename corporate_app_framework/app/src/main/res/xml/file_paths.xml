@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Основной путь для files/ -->
+    <files-path name="files" path="." />
+
+    <!-- Особый путь для appUpdate/ -->
+    <files-path name="app_update" path="appUpdate/" />
+
+    <!-- На всякий случай добавьте cache -->
+    <cache-path name="cache" path="." />
+</paths>

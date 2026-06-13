@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        ОСНОВНАЯ ТЕМА ПРИЛОЖЕНИЯ - Theme.Decanter
+        Используется во время работы приложения после загрузки
+        Светлый фон (#E8E7E9) с прозрачным статус-баром и светлыми иконками
+    -->
+    <style name="Theme.Decanter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Основные цвета -->
+        <item name="colorPrimary">#000000</item>                    <!-- Основной цвет акцентов -->
+        <item name="android:windowBackground">#E8E7E9</item>        <!-- Цвет фона приложения (кремовый) -->
+
+        <!-- Настройки системных панелей -->
+        <item name="android:statusBarColor">#EBEBEB</item>    <!-- Прозрачный статус-бар -->
+        <item name="android:navigationBarColor">#EBEBEB</item>                   <!-- Черная навигационная панель -->
+
+        <!-- Расширенные настройки отображения -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>         <!-- Разрешить отрисовку под системными панелями -->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>   <!-- Отображение в вырезах экрана -->
+
+        <!-- Стиль иконок системных панелей -->
+        <item name="android:windowLightStatusBar">true</item>        <!-- Светлые иконки в статус-баре (для темного фона) -->
+        <item name="android:windowLightNavigationBar">true</item>    <!-- Светлые иконки в навигационной панели -->
+
+        <!-- Отключение прозрачности -->
+        <item name="android:windowTranslucentStatus">false</item>    <!-- Непрозрачный статус-бар -->
+        <item name="android:windowTranslucentNavigation">false</item><!-- Непрозрачная навигационная панель -->
+
+        <!-- Удаление стандартных элементов интерфейса -->
+        <item name="windowActionBar">false</item>        <!-- Скрыть Action Bar -->
+        <item name="windowNoTitle">true</item>           <!-- Скрыть заголовок -->
+
+
+
+    </style>
+
+    <!--
+        ТЕМА ЗАПУСКА - Theme.Decanter.Launch
+        Используется только при запуске приложения до загрузки видео
+        Черный фон для устранения белого мерцания при старте
+        Наследует все настройки основной темы, кроме фона
+    -->
+    <style name="Theme.Decanter.Launch" parent="Theme.Decanter">
+        <item name="android:windowBackground">@android:color/black</item>    <!-- Черный фон при запуске -->
+        <item name="android:windowAnimationStyle">@null</item>               <!-- Отключение анимации при запуске -->
+    </style>
+
+</resources>

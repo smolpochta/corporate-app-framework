@@ -1,0 +1,88 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.smolpochta.decanter'
+    compileSdk 34
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    defaultConfig {
+        applicationId "com.smolpochta.decanter"
+        minSdk 21
+        targetSdk 34
+        versionCode 60613
+        versionName "60613"
+        vectorDrawables.useSupportLibrary = true
+
+        // Генерируем BuildConfig поля
+        buildConfigField "String", "VERSION_NAME", "\"${versionName}\""
+        buildConfigField "int", "VERSION_CODE", "${versionCode}"
+
+        // Для манифеста
+        manifestPlaceholders = [
+                appName: "Decanter",
+                versionName: versionName,
+                versionCode: versionCode.toString()]
+    }
+
+    // Настройка для переименования APK
+    project.setProperty("archivesBaseName", "decanter")
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+            crunchPngs true
+
+            // Переименование APK файла - ИСПРАВЛЕННАЯ ЧАСТЬ
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    // Заменяем точки на подчеркивания в версии
+                    def formattedVersion = versionName.replace('.', '_')
+                    outputFileName = "Decanter_${formattedVersion}.apk"
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity:1.8.0'
+
+    // Для работы со сетью
+    implementation 'com.hierynomus:smbj:0.11.5'
+    implementation 'org.slf4j:slf4j-api:1.7.30'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+
+    // Для видео воспроизведения
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+
+    // Для парсинга JSON
+    implementation 'org.jsoup:jsoup:1.15.3'
+
+    implementation 'com.caverock:androidsvg:1.4'
+    implementation 'androidx.browser:browser:1.5.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+}
