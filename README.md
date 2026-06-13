@@ -75,7 +75,7 @@
 ### 🎥 Запуск и главное меню
 [![Видео](https://img.shields.io/badge/🎥_Видео-Смотреть-FF0000?style=for-the-badge)](Demo.mp4)
 
-### 📱 Клиентское приложение (реализовано две функции "Акции" и "Команда")
+### 📱 Клиентское приложение (реализованы функции "Акции" и "Команда")
 [![Скачать](https://img.shields.io/badge/📱_APK-Скачать-4CAF50?style=for-the-badge&logo=android)](https://github.com/smolpochta/corporate-app-framework/releases/download/apk/CorporateApplication.apk)
 
 ### 💻 Исходный код (12 модулей)
