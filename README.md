@@ -76,7 +76,7 @@
 [![Видео](https://img.shields.io/badge/🎥_Видео-Смотреть-FF0000?style=for-the-badge)](Demo.mp4)
 
 ### 📱 Клиентское приложение
-[![Скачать](https://img.shields.io/badge/📱_APK-Скачать-4CAF50?style=for-the-badge&logo=android)](Client.apk)
+[![Скачать](https://img.shields.io/badge/📱_APK-Скачать-4CAF50?style=for-the-badge&logo=android)](CorporateApplication.apk)
 
 ### 💻 Главный модуль
 [![Код](https://img.shields.io/badge/💻_Java-Посмотреть_код-007396?style=for-the-badge&logo=java)](MainActivity.java)
