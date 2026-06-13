@@ -78,8 +78,8 @@
 ### 📱 Клиентское приложение
 [![Скачать](https://img.shields.io/badge/📱_APK-Скачать-4CAF50?style=for-the-badge&logo=android)](https://github.com/smolpochta/corporate-app-framework/releases/download/apk/CorporateApplication.apk)
 
-### 💻 Главный модуль
-[![Код](https://img.shields.io/badge/💻_Java-Посмотреть_код-007396?style=for-the-badge&logo=java)](MainActivity.java)
+### 💻 Исходный код (реализовано две функции "Акции" и "Команда")
+[![Код](https://img.shields.io/badge/💻_Java-Посмотреть_код-007396?style=for-the-badge&logo=java)](https://github.com/smolpochta/corporate-app-framework/tree/main/corporate_app_framework)
 
  
 <br>
